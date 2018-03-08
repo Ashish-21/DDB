@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
+    </head>
+	<!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * Firebase Console > Overview > Add Firebase to your web app. *
+       ***************************************************************************************** -->
+    
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCvgL67Mgs5WuegpA4IE5RozC4eAwZfT10",
+    authDomain: "signin-9768.firebaseapp.com",
+    databaseURL: "https://signin-9768.firebaseio.com",
+    projectId: "signin-9768",
+    storageBucket: "signin-9768.appspot.com",
+    messagingSenderId: "617849813600"
+  };
+  firebase.initializeApp(config);
+</script>
+	
+  <body>
+    <!-- The surrounding HTML is left untouched by FirebaseUI.
+         Your app may use that space for branding, controls and other customizations.-->
+    <script>
+	firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
+	document.body.innerHTML = '<h1> Congrats' + user.displayName + 'You are done! </h1> <h2>Need to verify email then the email you provided : ' + user.email + '.</h2>';
+	}
+	else {
+		console.log("No user signed in");
+	}
+	});
+	</script>
+	
+
+	<h1>Welcome to My Awesome Page</h1>
+    <div id="firebaseui-auth-container"></div>
+  </body>
+</html>
