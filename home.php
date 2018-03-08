@@ -5,6 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.6.2/firebaseui.css" />
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCvgL67Mgs5WuegpA4IE5RozC4eAwZfT10",
+    authDomain: "signin-9768.firebaseapp.com",
+    databaseURL: "https://signin-9768.firebaseio.com",
+    projectId: "signin-9768",
+    storageBucket: "signin-9768.appspot.com",
+    messagingSenderId: "617849813600"
+  };
+  firebase.initializeApp(config);
+var uiConfig = {
+        signInSuccessUrl: 'profile.php',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID
+        ],
+        // Terms of service url.
+        tosUrl: '<loggedin.html>'
+      };
+       var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+
+
+
+	firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
+	console.log(user.displayName);
+    window.location.href = "profile.php";
+    }
+	else {
+
+	}
+	});
+
+
+
+
+</script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
 body, html {
@@ -47,9 +90,7 @@ body, html {
     </a>
     <a href="#home" class="w3-bar-item w3-button" style="color:#EEEEEE;"><i class="fa fa-home"></i>  HOME</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small" style="color:#EEEEEE;"><i class="fa fa-user"></i>  ABOUT-US</a>
-
-    <a href="profile.php" class="w3-bar-item w3-button w3-hide-small" style="color:#EEEEEE;"><i class="fa fa-google"></i>  SIGN-IN WITH GOOGLE</a>
-  </div>
+     </div>
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
@@ -61,7 +102,9 @@ body, html {
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div style="margin-top:50px;"class="w3-display-middle" style="white-space:nowrap;">
     <button class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">DIGITAL SECURITY</button>
-  </div>
+    <div id="firebaseui-auth-container" style="background=black; !important"></div>
+
+ </div>
 </div>
 
 <!-- Container (About Section) -->
