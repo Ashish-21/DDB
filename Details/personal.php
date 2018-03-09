@@ -32,6 +32,8 @@
       </div>
     </div>
 
+    
+
     <div class="form-group">
       <label class="control-label col-sm-3" for="email">Mobile No:</label>
       <div class="col-sm-7">
@@ -40,9 +42,10 @@
     </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-3" for="email">Email:</label>
+      <label class="control-label col-sm-3" for="email">Gender:</label>
       <div class="col-sm-7">
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        <label class="radio-inline"><input type="radio" name="optradio">Male</label>
+        <label class="radio-inline"><input type="radio" name="optradio">Female</label>
       </div>
     </div>
 
@@ -119,7 +122,7 @@
 
            <div class="form-group">        
       <div class="col-sm-offset-3 col-sm-10">
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-danger">Submit</button>
       </div>
       </div>
 
