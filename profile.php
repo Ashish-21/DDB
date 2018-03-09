@@ -12,7 +12,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-
     <script>
   // Initialize Firebase
   var config = {
@@ -29,15 +28,11 @@
 	if (user) {
 	console.log(user.displayName);
     $('#username').html(user.displayName);
-
     }
 	else {
-
     window.location.href = "home.php";
 	}
 	});
-
-
 </script>
 
 
@@ -45,14 +40,6 @@
     body {
   overflow-x: hidden;
 }
-
-
-
-
-
-
-
-
 #wrapper {
   padding-left: 0;
   -webkit-transition: all 0.1s ease;
@@ -167,6 +154,54 @@
     margin-right: 0;
   }
 }
+
+.bgColor {
+max-width: 440px;
+height:150px;
+background-color: #fff4be;
+border-radius: 4px;
+}
+.bgColor label{
+font-weight: bold;
+color: #A0A0A0;
+}
+#targetLayer{
+float:left;
+width:150px;
+height:150px;
+text-align:center;
+line-height:150px;
+font-weight: bold;
+color: #C0C0C0;
+background-color: #F0E8E0;
+border-bottom-left-radius: 4px;
+border-top-left-radius: 4px;
+}
+#uploadFormLayer{
+	float:left;
+	padding: 20px;
+}
+.btnSubmit {
+	background-color: #696969;
+    padding: 5px 30px;
+    border: #696969 1px solid;
+    border-radius: 4px;
+    color: #FFFFFF;
+    margin-top: 10px;
+}
+.inputFile {
+	padding: 5px;
+	background-color: #FFFFFF;
+	border:#F0E8E0 1px solid;
+	border-radius: 4px;
+}
+.image-preview {
+width:150px;
+height:150px;
+border-bottom-left-radius: 4px;
+border-top-left-radius: 4px;
+}
+
     </style>
 </head>
 <body>
@@ -192,7 +227,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="uploadA" data-toggle="pill">Upload Aadhar</a>
+                    <a href="#uploadA" data-toggle="pill">Upload Aadhar</a>
                 </li>
                 <li>
                     <a href="#PD" data-toggle="pill">Personal Details</a>
@@ -218,9 +253,13 @@
         <!-- /#sidebar-wrapper -->
         <!-- Page Content -->
         <div id="page-content-wrapper class="tab-content"">
-            <div id="PD" class="tab-pane fade">
-            <h3>Menu 1</h3>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div id="uploadA" class="tab-pane fade">
+              <div id="targetLayer">No Image</div>
+              <form id="uploadForm">
+                  <label>Upload Image File:</label><br/>
+                  <input name="userImage" type="file" class="inputFile" />
+                  <input type="submit" value="Submit" class="btnSubmit" />
+              </form>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -233,9 +272,27 @@
     $(document).ready(function(){
         $("#wrapper").toggleClass("toggled");
     });
-
-
-
+	     $("#uploadForm").on('submit',(function(e) {
+		       e.preventDefault();
+           alert("Done");
+             $.ajax({
+        	      url: "upload.php",
+			          type: "POST",
+			          data:  new FormData(this),
+			          contentType: false,
+			          processData:false,
+			          success: function(data)
+		            {
+                  console.log(data);
+                  //console.log("done");
+                //  $("#targetLayer").html(data);
+                },
+		  	        error: function()
+	    	        {
+                  console.log("Error");
+	    	        }
+	            });
+	      }));
   $('#signout').click(function()
   {
     firebase.auth().signOut().then(function() {
