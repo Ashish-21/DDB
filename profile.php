@@ -37,7 +37,7 @@
 
     <style>
         body {
-            overflow-x: hidden;
+            overflow-x: scroll;
         }
         #wrapper {
             padding-left: 0;
@@ -146,42 +146,7 @@
             font-weight: bold;
             color: #A0A0A0;
         }
-        #targetLayer{
-            float:left;
-            width:150px;
-            height:150px;
-            text-align:center;
-            line-height:150px;
-            font-weight: bold;
-            color: #C0C0C0;
-            background-color: #F0E8E0;
-            border-bottom-left-radius: 4px;
-            border-top-left-radius: 4px;
-        }
-        #uploadFormLayer{
-            float:left;
-            padding: 20px;
-        }
-        .btnSubmit {
-            background-color: #696969;
-            padding: 5px 30px;
-            border: #696969 1px solid;
-            border-radius: 4px;
-            color: #FFFFFF;
-            margin-top: 10px;
-        }
-        .inputFile {
-            padding: 5px;
-            background-color: #FFFFFF;
-            border:#F0E8E0 1px solid;
-            border-radius: 4px;
-        }
-        .image-preview {
-            width:150px;
-            height:150px;
-            border-bottom-left-radius: 4px;
-            border-top-left-radius: 4px;
-        }
+
     </style>
 </head>
 <body>
@@ -207,6 +172,10 @@
 
                 </a>
             </li>
+
+            <li>
+                <a href="#instructions" data-toggle="pill">Instructions</a>
+            </li>
             <li>
                 <a href="#uploadA" data-toggle="pill">Upload Aadhar</a>
             </li>
@@ -223,10 +192,10 @@
                 <a href="#PDD" data-toggle="pill">Professional Details</a>
             </li>
             <li>
-                <a href="#OD" data-toggle="pill">Other Details</a>
+                <a href="#SP" data-toggle="pill">Social Profile</a>
             </li>
             <li>
-                <a href="#UDD" data-toggle="pill">Upload Documents</a>
+                <a href="#uploadDoc" data-toggle="pill">Upload Documents</a>
             </li>
 
             <li>
@@ -237,35 +206,34 @@
     <!-- /#sidebar-wrapper -->
     <!-- Page Content -->
     <div id="page-content-wrapper" class="tab-content">
+
+        <div id="instructions" class="tab-pane fade in active">
+            <?php include "instructions.php"?>
+        </div>
+
         <div id="uploadA" class="tab-pane fade">
-         <div id="targetLayer">No Image</div>
-         <form id="uploadForm">
-            <label>Upload Image File:</label><br/>
-            <input name="userImage" type="file" class="inputFile" />
-            <input type="submit" value="Submit" class="btnSubmit" />
-         </form>
-        <p id="firstname"></p>
+            <?php include "uploadAadhar.php"?>
         </div>
 
         <div id="RN" class="tab-pane fade">
-            <form id="registerPhone">
-                <label>Register Your Number:</label>
-                <input type="number" id="phone" name="phone">
-                <input type="submit" value="Register" class="btnSubmit">
-            </form>
-
-            <div id="receiveOTP">
-              <form id="receiveotp">
-                  <label>Enter OTP:</label>
-                  <input type="number" id="otp" name="otp">
-                  <input type="submit" class="btnSubmit" id="otpVerify">
-              </form>
-            </div>
+            <?php include "registerPhone.php" ?>
         </div>
 
-
-
-
+        <div id="PD" class="tab-pane fade">
+            <?php include "personalDetails.php"?>
+        </div>
+        <div id="ED" class="tab-pane fade">
+            <?php include "educationalDetails.php"?>
+        </div>
+        <div id="PDD" class="tab-pane fade">
+            <?php include "professionalDetails.php"?>
+        </div>
+        <div id="SP" class="tab-pane fade">
+            <?php include "socialProfle.php"?>
+        </div>
+        <div id="uploadDoc" class="tab-pane fade">
+            <?php include "uploadDoc.php"?>
+        </div>
     </div>
 </div>
 <!-- /#page-content-wrapper -->
@@ -280,99 +248,6 @@
         $("#wrapper").toggleClass("toggled");
         $('#receiveOTP').hide();
     });
-    $("#uploadForm").on('submit',(function(e) {
-        e.preventDefault();
-        alert("Done");
-        var formdata=new FormData(this);
-        myFunction();
-        formdata.append("apikey","22c4fed54588957");
-        formdata.append("isOverlayRequired", false);
-        $.ajax({
-            url: "https://api.ocr.space/parse/image",
-            type: "POST",
-            dataType:"json",
-            data:  formdata,
-            contentType: false,
-            processData:false,
-            success: function(data)
-            {
-                var name=data.ParsedResults[0].ParsedText;
-                var onlyName=name.split(" ");
-                console.log(onlyName);
-                $('#firstname').append(onlyName[0]+" "+onlyName[1]+" "+onlyName[2]);
-
-            },
-            error: function()
-            {
-                console.log("Error");
-            }
-        });
-            $.ajax({
-            url: "upload.php",
-            type: "POST",
-            data:  formdata,
-            contentType: false,
-            processData:false,
-            success: function(data)
-            {
-                console.log(data);
-                //console.log("done");
-                  $("#targetLayer").html(data);
-            },
-            error: function()
-            {
-                console.log("Error");
-            }
-        });
-
-
-
-    }));
-
-    $('#registerPhone').on('submit',function (event) {
-        event.preventDefault();
-        var phoneNumber=$('#phone').val();
-        var formdata=new FormData(this);
-        $.ajax(
-            {
-                url:"sendSMS.php",
-                type:"POST",
-                data:formdata,
-                contentType:false,
-                processData:false,
-                success:function(data)
-                {
-                    console.log(data);
-                    var data1=JSON.parse(data);
-                    console.log(data1[0]);
-                    otp1=data1[1];
-                    processOTP(otp1);
-                    $('#receiveOTP').show();
-                },
-                error:function()
-                {
-                    console.log("Error");
-                }
-
-            }
-        );
-    });
-    $('#otpVerify').click(function(e)
-    {
-        e.preventDefault();
-        var serverOTP=otp1;
-        var clientOTP=$("#otp").val();
-        processOTP(clientOTP,serverOTP)
-    });
-    function processOTP(otp,otp1)
-    {
-        if(otp==otp1)
-        {
-            alert("done");
-        }
-
-    }
-
     $('#signout').click(function()
     {
         firebase.auth().signOut().then(function() {

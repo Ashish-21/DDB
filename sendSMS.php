@@ -8,15 +8,13 @@
     $randomNumber=mt_rand(1,9);
     $otp=$otp.$randomNumber;
     $i++;
-    }
-    $responseArray=array($phone,$otp);
-    echo json_encode($responseArray);
-	/*$username = "ashishchandwani21@gmail.com";
+    }/*
+	$username = "ashishchandwani21@gmail.com";
  	$hash = "a6709128671121e26c9e30291a2fce1af01597903b245aba24f946833912cdcd";
 	$test = "0";
     $sender = "TXTLCL"; // This is who the message appears to be from.
 	$ch = curl_init();
-	$msgtxt="Help Required...";
+	$msgtxt="Your OTP for Digital Identity Platform is".$otp;
 	$message = urlencode($msgtxt);
 	$data = "username=".$username."&hash=".$hash."&message=".$message."&sender=".$sender."&numbers=".$phone."&test=".$test;
 	$ch = curl_init('http://api.textlocal.in/send/?');
@@ -27,12 +25,13 @@
 	curl_close($ch);
 	if(empty ($buffer))
 	{
-	    $result = "failure";
+
 	}
 	else
 	{ 
-	$result ="Ass";
-	}
-	echo json_encode($result);
-	*/
+	$result ="Success";
+	}*/
+	$responseArray=array("ashish",$otp);
+	echo json_encode($responseArray);
+
 ?>
