@@ -8,7 +8,7 @@
     $randomNumber=mt_rand(1,9);
     $otp=$otp.$randomNumber;
     $i++;
-    }/*
+    }
 	$username = "ashishchandwani21@gmail.com";
  	$hash = "a6709128671121e26c9e30291a2fce1af01597903b245aba24f946833912cdcd";
 	$test = "0";
@@ -30,8 +30,8 @@
 	else
 	{ 
 	$result ="Success";
-	}*/
-	$responseArray=array("ashish",$otp);
+	}
+	$responseArray=array($result,$otp);
 	echo json_encode($responseArray);
 
 ?>

@@ -237,7 +237,9 @@
             <li>
                 <a href="#uploadDoc" data-toggle="pill">Upload Documents</a>
             </li>
-
+            <li>
+                <a href="#digitalCard" data-toggle="pill">Your Digital Identity</a>
+            </li>
             <li>
                 <a href="#signout" id="signout" data-toggle="pill">Logout</a>
             </li>
@@ -274,6 +276,10 @@
         </div>
         <div id="uploadDoc" class="tab-pane fade">
             <?php include "uploadDoc.php"?>
+        </div>
+
+        <div id="digitalCard" class="tab-pane fade">
+            <?php include "generateCard.php"?>
         </div>
     </div>
 </div>
