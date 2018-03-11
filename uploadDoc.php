@@ -47,6 +47,9 @@
             border-bottom-left-radius: 4px;
             border-top-left-radius: 4px;
         }
+        .row{
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
@@ -70,6 +73,7 @@
                     <form id="uploadForm">
                         <label>Pancard</label><br/>
                         <input name="userImage" type="file" class="inputFile" required/>
+                        <br>
                         <input type="submit" id="uploadButton" value="Submit" class="btn btn-primary btn-lg" data-loading-text="Uploading File..." />
                     </form>
                 </div>
@@ -80,6 +84,7 @@
                     <form id="uploadForm">
                         <label>Bank Bassbook</label><br/>
                         <input name="userImage" type="file" class="inputFile" required/>
+                        <br>
                         <input type="submit" id="uploadButton" value="Submit" class="btn btn-primary btn-lg" data-loading-text="Uploading File..." />
                     </form>
                 </div>
@@ -88,6 +93,7 @@
                     <form id="uploadForm">
                         <label>Ration Card</label><br/>
                         <input name="userImage" type="file" class="inputFile" required/>
+                        <br>
                         <input type="submit" id="uploadButton" value="Submit" class="btn btn-primary btn-lg" data-loading-text="Uploading File..." />
                     </form>
                 </div>
@@ -96,6 +102,7 @@
                     <form id="uploadForm">
                         <label>Driving License</label><br/>
                         <input name="userImage" type="file" class="inputFile" required/>
+                        <br>
                         <input type="submit" id="uploadButton" value="Submit" class="btn btn-primary btn-lg" data-loading-text="Uploading File..." />
                     </form>
                 </div>
@@ -104,6 +111,7 @@
                     <form id="uploadForm">
                         <label>Birth Certificate</label><br/>
                         <input name="userImage" type="file" class="inputFile" required/>
+                        <br>
                         <input type="submit" id="uploadButton" value="Submit" class="btn btn-primary btn-lg" data-loading-text="Uploading File..." />
                     </form>
                 </div>
@@ -112,6 +120,7 @@
                     <form id="uploadForm">
                         <label>Income Certificate</label><br/>
                         <input name="userImage" type="file" class="inputFile" required/>
+                        <br>
                         <input type="submit" id="uploadButton" value="Submit" class="btn btn-primary btn-lg" data-loading-text="Uploading File..." />
                     </form>
                 </div>
@@ -122,6 +131,7 @@
                     <form id="uploadForm">
                         <label>SSC Marksheet</label><br/>
                         <input name="userImage" type="file" class="inputFile" required/>
+                        <br>
                         <input type="submit" id="uploadButton" value="Submit" class="btn btn-primary btn-lg" data-loading-text="Uploading File..." />
                     </form>
                 </div>
@@ -131,6 +141,7 @@
                     <form id="uploadForm">
                         <label>HSC Marksheet</label><br/>
                         <input name="userImage" type="file" class="inputFile" required/>
+                        <br>
                         <input type="submit" id="uploadButton" value="Submit" class="btn btn-primary btn-lg" data-loading-text="Uploading File..." />
                     </form>
                 </div>
