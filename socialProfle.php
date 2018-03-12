@@ -11,80 +11,80 @@
 <body>
 
 <div class="container">
-    <div class="panel panel-primary">
-        <div class="panel-heading"><center>Social Profile:</center></div>
-        <div class="panel-body">
-            <div class="fluid-container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="comment">Write Something About You:</label>
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
+        <div class="panel panel-primary">
+            <div class="panel-heading"><center>Social Profile:</center></div>
+            <div class="panel-body">
+                <div class="fluid-container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="comment">Write Something About You:</label>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="usr">Facebook ProfileName:</label>
-                            <input type="text" class="form-control" id="dob" name="dob">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="usr">Facebook ProfileName:</label>
+                                <input type="text" class="form-control" id="dob" name="dob">
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="usr">Twitter ProfileName:</label>
-                            <input type="text" class="form-control" id="dob" name="dob">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="usr">Twitter ProfileName:</label>
+                                <input type="text" class="form-control" id="dob" name="dob">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="usr">Instagram ProfileName:</label>
-                            <input type="text" class="form-control" id="dob" name="dob">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="usr">Instagram ProfileName:</label>
+                                <input type="text" class="form-control" id="dob" name="dob">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="usr">LinkedIn ProfileName:</label>
-                            <input type="text" class="form-control" id="dob" name="dob">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="usr">LinkedIn ProfileName:</label>
+                                <input type="text" class="form-control" id="dob" name="dob">
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="usr">Youtube Channel Name:</label>
-                            <input type="text" class="form-control" id="dob" name="dob">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="usr">Youtube Channel Name:</label>
+                                <input type="text" class="form-control" id="dob" name="dob">
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="usr">Github Profile Link</label>
-                            <input type="text" class="form-control" id="dob" name="dob">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="usr">Github Profile Link</label>
+                                <input type="text" class="form-control" id="dob" name="dob">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <center> <input type="submit" class="btn btn-primary" value="Submit"></center>
+                    <div class="row">
+                        <center> <input type="submit" class="btn btn-primary" value="Submit"></center>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
 </body>
 </html>
