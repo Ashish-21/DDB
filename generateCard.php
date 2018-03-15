@@ -24,7 +24,6 @@
 </div>
 <script>
     var doc = new jsPDF();
-
     var doc = new jsPDF();
     var specialElementHandlers = {
         '#editor': function (element, renderer) {
@@ -37,7 +36,7 @@
             'width': 170,
             'elementHandlers': specialElementHandlers
         });
-        doc.save('sample-file.pdf');
+        doc.save('Digital_Identity.pdf');
     });
 </script>
 </body>
